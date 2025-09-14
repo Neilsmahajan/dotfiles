@@ -1,1 +1,61 @@
 .DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Node, yarn, pnpm caches (if any scripts/tools present)
+node_modules/
+.pnp.cjs
+.pnp.loader.mjs
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Editors/IDEs
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+
+# Local overrides and secrets (keep out of git)
+*.local
+*.secret
+*.env
+*.env.*
+secrets/
+local/
+
+# macOS again (folder-level)
+**/.DS_Store
+
+# Stow safety – we track these files but do not want them symlinked into $HOME
+# (Actual exclusion from stow is handled by .stow-local-ignore)
+
+# Lockfiles & package managers
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Misc caches
+.cache/
+
