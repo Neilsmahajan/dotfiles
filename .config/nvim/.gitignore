@@ -1,0 +1,31 @@
+# macOS system files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Neovim backup/swap files
+*.swp
+*.swo
+*~
+.netrwhist
+
+# Lazy.nvim lockfile should be committed for reproducibility
+# (pin plugin versions across machines)
+#! If you prefer floating plugin versions, re-ignore this file.
+#! But default recommendation is to keep it tracked.
+# keep lazy-lock.json tracked
+# (no ignore rule)
+
+# Personal/local configuration files
+local.lua
+local/
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
