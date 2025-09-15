@@ -93,14 +93,15 @@ export PATH="$PATH:/Users/neilsmahajan/.local/bin"
 export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 
 # -----------------------------------
+# fzf
+# -----------------------------------
+source <(fzf --zsh)
+#
+# -----------------------------------
 # zoxide
 # -----------------------------------
 eval "$(zoxide init zsh)"
 
-# -----------------------------------
-# fzf
-# -----------------------------------
-source <(fzf --zsh)
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
