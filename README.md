@@ -27,7 +27,41 @@ This repo currently includes `.zshrc` and Neovim config (`.config/nvim/`). More 
   - Example: `.zshrc` (file), `.config/nvim/` (folder)
 - Machine‑local overrides live in `*.local` files or `local/` folders which are git‑ignored
 - Plugin version locks that aid reproducibility (e.g. `lazy-lock.json`) are tracked
-- Non‑config repo content (README, .git, etc.) is protected from stowing via `.stow-local-ignore`
+- By default, Stow’s built-in ignores are used. If you ever need to prevent specific repo files from being stowed (e.g., README.md), you can add a small `.stow-local-ignore` later.
+
+## Currently tracked and stowed
+
+Shell and prompt
+
+- `~/.zshrc`
+- `~/.zprofile` (if present)
+- `~/.zshenv` (keep minimal)
+- `~/.p10k.zsh` (Powerlevel10k)
+
+Editors
+
+- Neovim: `~/.config/nvim/`
+- Vim: `~/.vimrc`
+  - Optional curated runtime: `~/.vim/` (exclude caches/plugins)
+
+Terminal, hotkeys, launcher
+
+- Ghostty: `~/.config/ghostty/`
+- Karabiner Elements: `~/.config/karabiner/`
+- Raycast: `~/.config/raycast/` (scripts/snippets; Raycast also has its own sync)
+
+Terminal multiplexer
+
+- tmux: `~/.tmux.conf`
+- Sessionizer scripts: `~/.config/tmux-sessionizer/` (if present)
+
+Git (global)
+
+- `~/.gitconfig`
+
+Not stowed by design
+
+- `~/.oh-my-zsh/` (installed per machine to simplify updates)
 
 ## Quick start (recommended)
 
@@ -104,7 +138,7 @@ Tip: Prefer XDG paths (`~/.config/...`) where possible so macOS/Linux align.
 
 ## Troubleshooting
 
-- Stow is touching files it shouldn’t: see `.stow-local-ignore` in this repo
+- Stow is touching files it shouldn’t: use a dry run (`stow -nvt ~ .`) and, if needed, add a `.stow-local-ignore` to exclude repo-only files
 - I want to see exactly what will change: use `stow -nvv .`
 - Strange symlink locations: ensure you’re in `~/dotfiles` and/or pass `-t ~`
 
@@ -116,4 +150,4 @@ Tip: Prefer XDG paths (`~/.config/...`) where possible so macOS/Linux align.
 
 ---
 
-Happy stowing! If you add new tool configs, mirror the `$HOME` layout and they’ll integrate seamlessly with `stow .`.
+Happy stowing! If you add new tool configs, mirror the `$HOME` layout and they’ll integrate seamlessly with `stow .`
