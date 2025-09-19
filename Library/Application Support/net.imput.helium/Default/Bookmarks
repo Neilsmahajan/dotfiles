@@ -1,5 +1,5 @@
 {
-   "checksum": "0e0686a7d3af8c519a168e5a97f14c04",
+   "checksum": "8403a404e03a02c10e9ff68091731e32",
    "roots": {
       "bookmark_bar": {
          "children": [ {
@@ -151,6 +151,22 @@
                   "type": "url",
                   "url": "https://go.dev/doc/effective_go"
                }, {
+                  "date_added": "13399590625000000",
+                  "date_last_used": "0",
+                  "guid": "fa901235-4606-4b2b-a000-454c24c6151f",
+                  "id": "27",
+                  "name": "PFG Labs",
+                  "type": "url",
+                  "url": "https://pfglabs.com/dashboard/search"
+               }, {
+                  "date_added": "13399736318000000",
+                  "date_last_used": "13402798522208186",
+                  "guid": "39a55d4f-d758-47ae-a160-7a643021de6b",
+                  "id": "28",
+                  "name": "The Go Programming Language",
+                  "type": "url",
+                  "url": "https://www.gopl.io/"
+               }, {
                   "date_added": "13399736394000000",
                   "date_last_used": "0",
                   "guid": "6164c75f-2ee4-40cf-8f69-9540a2b7c305",
@@ -167,25 +183,53 @@
                   "type": "url",
                   "url": "https://lets-go-further.alexedwards.net/"
                }, {
-                  "date_added": "13399590625000000",
+                  "date_added": "13402798462986871",
                   "date_last_used": "0",
-                  "guid": "fa901235-4606-4b2b-a000-454c24c6151f",
-                  "id": "27",
-                  "name": "PFG Labs",
+                  "guid": "82888ce4-069a-4c08-a071-e003875b80e3",
+                  "id": "142",
+                  "meta_info": {
+                     "power_bookmark_meta": ""
+                  },
+                  "name": "Writing An Interpreter In Go",
                   "type": "url",
-                  "url": "https://pfglabs.com/dashboard/search"
+                  "url": "https://interpreterbook.com/"
                }, {
-                  "date_added": "13399736318000000",
+                  "date_added": "13402798491326875",
                   "date_last_used": "0",
-                  "guid": "39a55d4f-d758-47ae-a160-7a643021de6b",
-                  "id": "28",
-                  "name": "The Go Programming Language",
+                  "guid": "f3450cd1-cc38-428f-bd6d-bc250a9762fa",
+                  "id": "143",
+                  "meta_info": {
+                     "power_bookmark_meta": ""
+                  },
+                  "name": "Writing A Compiler In Go",
                   "type": "url",
-                  "url": "https://www.gopl.io/"
+                  "url": "https://compilerbook.com/"
+               }, {
+                  "date_added": "13402798540884842",
+                  "date_last_used": "0",
+                  "guid": "173cd74b-a5a2-4a33-9f39-73c9beedbbdf",
+                  "id": "144",
+                  "meta_info": {
+                     "power_bookmark_meta": ""
+                  },
+                  "name": "Learn Go with Tests",
+                  "type": "url",
+                  "url": "https://quii.gitbook.io/learn-go-with-tests"
+               }, {
+                  "date_added": "13402798568852195",
+                  "date_last_used": "0",
+                  "guid": "23510b25-83aa-4d35-bfc8-e58d4f89a4cc",
+                  "id": "145",
+                  "meta_info": {
+                     "power_bookmark_meta": ""
+                  },
+                  "name": "100 Go Mistakes and How to Avoid Them",
+                  "type": "url",
+                  "url": "https://100go.co/"
                } ],
                "date_added": "13402543053873703",
                "date_last_used": "0",
-               "date_modified": "0",
+               "date_modified": "13402798897265916",
                "guid": "450ed914-78a0-4a74-a2b3-643b3a20d3cc",
                "id": "21",
                "name": "Go",
@@ -848,7 +892,7 @@
                "url": "https://github.com/"
             }, {
                "date_added": "0",
-               "date_last_used": "0",
+               "date_last_used": "13402797107116939",
                "guid": "10d2aa9d-3568-4538-b1d8-efe0adf09775",
                "id": "110",
                "name": "Google Cloud console",
@@ -993,10 +1037,21 @@
                "name": "Auth0",
                "type": "url",
                "url": "https://auth0.com/"
+            }, {
+               "date_added": "13402798897265916",
+               "date_last_used": "0",
+               "guid": "3da3c48c-6f3b-4cad-99c2-5212a1c0f009",
+               "id": "146",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "MongoDB Cloud",
+               "type": "url",
+               "url": "https://cloud.mongodb.com/v2/68c719695281f22dfd38033d#/overview"
             } ],
             "date_added": "13402543053874111",
             "date_last_used": "0",
-            "date_modified": "13402714160551436",
+            "date_modified": "13402798911749117",
             "guid": "0fbaa855-5996-44bc-b5c8-3fe6db6cc731",
             "id": "107",
             "name": "Developer",
