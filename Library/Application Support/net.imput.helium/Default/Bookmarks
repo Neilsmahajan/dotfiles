@@ -1,5 +1,5 @@
 {
-   "checksum": "0935be120c8a5b0eb6bc343de207c7ef",
+   "checksum": "0e0686a7d3af8c519a168e5a97f14c04",
    "roots": {
       "bookmark_bar": {
          "children": [ {
@@ -982,10 +982,21 @@
                "name": "AWS Console Home",
                "type": "url",
                "url": "https://us-east-1.console.aws.amazon.com/console/home?nc2=h_si&src=header-signin&region=us-east-1"
+            }, {
+               "date_added": "13402714154384840",
+               "date_last_used": "0",
+               "guid": "6d13875c-185e-4353-b884-1f2c82828668",
+               "id": "140",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Auth0",
+               "type": "url",
+               "url": "https://auth0.com/"
             } ],
             "date_added": "13402543053874111",
             "date_last_used": "0",
-            "date_modified": "0",
+            "date_modified": "13402714160551436",
             "guid": "0fbaa855-5996-44bc-b5c8-3fe6db6cc731",
             "id": "107",
             "name": "Developer",
@@ -1077,7 +1088,7 @@
             } ],
             "date_added": "13402543053874208",
             "date_last_used": "0",
-            "date_modified": "13402712397377617",
+            "date_modified": "13402714154384840",
             "guid": "9f981986-4179-4f30-9b06-23614466ee89",
             "id": "127",
             "name": "AI",
