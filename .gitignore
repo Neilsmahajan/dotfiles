@@ -38,7 +38,7 @@ venv/
 *~
 
 # Local overrides and secrets (keep out of git)
-*.local
+#*.local
 *.secret
 *.env
 *.env.*
