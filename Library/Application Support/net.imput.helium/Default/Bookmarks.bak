@@ -1,5 +1,5 @@
 {
-   "checksum": "c7784e6cabfe275c99be18e625a4d7b5",
+   "checksum": "8403a404e03a02c10e9ff68091731e32",
    "roots": {
       "bookmark_bar": {
          "children": [ {
@@ -824,6 +824,14 @@
                "name": "TikTok",
                "type": "url",
                "url": "https://www.tiktok.com/"
+            }, {
+               "date_added": "0",
+               "date_last_used": "0",
+               "guid": "d5ef5c34-5a5d-4951-83cd-66fbf32255aa",
+               "id": "102",
+               "name": "Threads",
+               "type": "url",
+               "url": "https://www.threads.net/@neilsmahajan"
             }, {
                "date_added": "0",
                "date_last_used": "0",

@@ -1,1 +1,1 @@
-mv ~/Library/Application\ Support/net.imput.helium/Default/Bookmarks ~/dotfiles/Library/Application\ Support/net.imput.helium/Default/Bookmarks
+cp ~/dotfiles/Library/Application\ Support/net.imput.helium/Default/Bookmarks ~/dotfiles/Library/Application\ Support/net.imput.helium/Default/Bookmarks.bak && rm ~/Library/Application\ Support/net.imput.helium/Default/Bookmarks.bak && mv ~/Library/Application\ Support/net.imput.helium/Default/Bookmarks ~/dotfiles/Library/Application\ Support/net.imput.helium/Default/Bookmarks

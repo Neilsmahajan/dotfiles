@@ -32,7 +32,7 @@ venv/
 # Logs and temporary files
 *.log
 *.tmp
-*.bak
+#*.bak
 *.swp
 *.swo
 *~
