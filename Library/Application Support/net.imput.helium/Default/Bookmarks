@@ -13,7 +13,7 @@
                "url": "https://netapp.sharepoint.com/sites/MyNetApp"
             }, {
                "date_added": "13402019280000000",
-               "date_last_used": "13403023759066392",
+               "date_last_used": "13403106512310478",
                "guid": "69273f3b-1ba5-4de8-ae7a-69aa94dc59b6",
                "id": "7",
                "name": "Jira",
@@ -29,7 +29,7 @@
                "url": "https://bitbucket.ngage.netapp.com/projects"
             }, {
                "date_added": "13401499201000000",
-               "date_last_used": "0",
+               "date_last_used": "13403052663432596",
                "guid": "ccf52cda-86c2-4368-8696-e119fff832c7",
                "id": "9",
                "name": "Confluence",
