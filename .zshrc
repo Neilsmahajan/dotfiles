@@ -82,9 +82,10 @@ export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 # -----------------------------------
 # AWS CLI
 # -----------------------------------
-export AWS_PROFILE=AdministratorAccess-347720567579
-export AWS_ACCOUNT_ID=347720567579
+# export AWS_PROFILE=AdministratorAccess-347720567579
+# export AWS_ACCOUNT_ID=347720567579
 export AWS_REGION=us-east-1
+export AWS_PROFILE=localstack
 
 # -----------------------------------
 # PostgreSQL
