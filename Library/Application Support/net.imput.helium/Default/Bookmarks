@@ -1,5 +1,5 @@
 {
-   "checksum": "707578b611fd184ec7cb292531e31673",
+   "checksum": "84caab6f070792068ed6afafffe2ed92",
    "roots": {
       "bookmark_bar": {
          "children": [ {
@@ -32,7 +32,7 @@
                "url": "https://jira.ngage.netapp.com/secure/RapidBoard.jspa?rapidView=4486&selectedIssue=UMF-18701&sprint=25365#"
             }, {
                "date_added": "13401499201000000",
-               "date_last_used": "13404521301945696",
+               "date_last_used": "13404599648318864",
                "guid": "ccf52cda-86c2-4368-8696-e119fff832c7",
                "id": "9",
                "name": "Confluence",
@@ -54,6 +54,17 @@
                "name": "Microsoft Azure",
                "type": "url",
                "url": "https://portal.azure.com/#home"
+            }, {
+               "date_added": "13404580414016098",
+               "date_last_used": "0",
+               "guid": "a41214f4-39da-4014-a6aa-0afefb653cdd",
+               "id": "154",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "BlueXP SRE Page",
+               "type": "url",
+               "url": "http://sreinfo.platform.bluexp.netapp.com/"
             }, {
                "children": [ {
                   "date_added": "13400772553000000",
@@ -97,7 +108,7 @@
                   "url": "https://netapp.sharepoint.com/sites/USBenefits"
                }, {
                   "date_added": "13402172800000000",
-                  "date_last_used": "13403212854278199",
+                  "date_last_used": "13404609842015715",
                   "guid": "1bc4dc4f-08d1-403b-af04-3dc8cde603bb",
                   "id": "19",
                   "name": "Heath Equity",
@@ -114,7 +125,7 @@
             }, {
                "children": [ {
                   "date_added": "13401830146000000",
-                  "date_last_used": "13404064036805304",
+                  "date_last_used": "13404592702043964",
                   "guid": "d93bba89-ffab-4057-aade-f789d64f7947",
                   "id": "11",
                   "name": "NetApp",
@@ -122,7 +133,7 @@
                   "url": "https://www.netapp.com/"
                }, {
                   "date_added": "13404059854859980",
-                  "date_last_used": "13404428869587544",
+                  "date_last_used": "13404594230463709",
                   "guid": "317901cf-e2c1-4e29-b195-6cd0c5131873",
                   "id": "150",
                   "meta_info": {
@@ -133,7 +144,7 @@
                   "url": "https://staging.console.netapp.com/identity-access-mgmt/federation"
                }, {
                   "date_added": "13404064025670654",
-                  "date_last_used": "13404509596292368",
+                  "date_last_used": "13404592710138165",
                   "guid": "2bf3e07d-54d2-4b67-9933-5f1fe2d7b73a",
                   "id": "152",
                   "meta_info": {
@@ -145,7 +156,7 @@
                } ],
                "date_added": "13404063998650060",
                "date_last_used": "0",
-               "date_modified": "13404064025670654",
+               "date_modified": "13404580414016098",
                "guid": "9ac36994-7bd1-402d-80d3-533687fd412e",
                "id": "151",
                "name": "Console",
@@ -153,7 +164,7 @@
             } ],
             "date_added": "13402543053873462",
             "date_last_used": "0",
-            "date_modified": "13404063998650251",
+            "date_modified": "13404594222606834",
             "guid": "bdb56887-c84d-4fb8-b72f-fc319b54bdaf",
             "id": "5",
             "name": "NetApp",
@@ -723,7 +734,7 @@
                "url": "https://digital.fidelity.com/ftgw/digital/portfolio/summary"
             }, {
                "date_added": "0",
-               "date_last_used": "0",
+               "date_last_used": "13404617869134451",
                "guid": "cf3dcfe7-5575-4606-8b75-21fc99e9002c",
                "id": "85",
                "name": "Capital One Venture X",
