@@ -1,5 +1,5 @@
 {
-   "checksum": "1c4d375ae17ef12ff870a70985ede10e",
+   "checksum": "d605ac588516e5957c4f66fd4e04926c",
    "roots": {
       "bookmark_bar": {
          "children": [ {
@@ -783,10 +783,21 @@
                "name": "Bilt Rewards",
                "type": "url",
                "url": "https://www.biltrewards.com/rewards/benefits"
+            }, {
+               "date_added": "13404868432213589",
+               "date_last_used": "0",
+               "guid": "19c8ba7e-87ee-489c-b55e-9baad0f9463e",
+               "id": "162",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Citi",
+               "type": "url",
+               "url": "https://www.citi.com/"
             } ],
             "date_added": "13402543053873975",
             "date_last_used": "0",
-            "date_modified": "13404840320964838",
+            "date_modified": "13404868444786620",
             "guid": "294e2a21-c894-4006-891c-7f09cd84679e",
             "id": "80",
             "name": "Finances",
@@ -1255,7 +1266,7 @@
             } ],
             "date_added": "13404840346342651",
             "date_last_used": "0",
-            "date_modified": "13404840507657640",
+            "date_modified": "13404868432213589",
             "guid": "19ab06a4-2fc7-4727-9fba-f7d1160e0bec",
             "id": "157",
             "name": "Entertainment",
