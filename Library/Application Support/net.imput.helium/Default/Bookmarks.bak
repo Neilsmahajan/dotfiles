@@ -1,5 +1,5 @@
 {
-   "checksum": "e817f3222b5446a343fc1c75e6af258d",
+   "checksum": "b01f68a460a6c0c91e5e9fa6aa6c50a2",
    "roots": {
       "bookmark_bar": {
          "children": [ {
@@ -73,7 +73,7 @@
                   "url": "https://my.adp.com/#/pay/pay-statements"
                }, {
                   "date_added": "13400773884000000",
-                  "date_last_used": "13404097254003166",
+                  "date_last_used": "13405707444298535",
                   "guid": "017346f6-dc47-4da9-9826-e376f20e6aa2",
                   "id": "13",
                   "name": "Alight",
@@ -802,10 +802,21 @@
                "name": "E*TRADE",
                "type": "url",
                "url": "https://us.etrade.com/etx/hw/v2/accountshome?inav=nav:logo"
+            }, {
+               "date_added": "13405707485399589",
+               "date_last_used": "0",
+               "guid": "10060e77-3225-4cd1-8b56-585f6e3f3eac",
+               "id": "153",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Chase",
+               "type": "url",
+               "url": "https://www.chase.com/"
             } ],
             "date_added": "13402543053873975",
             "date_last_used": "0",
-            "date_modified": "13405702126037136",
+            "date_modified": "13405707495842412",
             "guid": "294e2a21-c894-4006-891c-7f09cd84679e",
             "id": "86",
             "name": "Finances",
@@ -946,7 +957,7 @@
             } ],
             "date_added": "13402543053874095",
             "date_last_used": "0",
-            "date_modified": "13405702150654768",
+            "date_modified": "13405707485399589",
             "guid": "035c2468-f28c-49fc-a798-ce4155abe247",
             "id": "111",
             "name": "Chancery Village",

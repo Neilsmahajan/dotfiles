@@ -52,6 +52,7 @@ export NVM_DIR="$HOME/.nvm"
 # -----------------------------------
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
+export GOPROXY="https://go.repo.eng.netapp.com"
 
 # -----------------------------------
 # Java Setup
@@ -115,3 +116,8 @@ export PATH="$HOME/.local/bin:$PATH"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/nm16354/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
