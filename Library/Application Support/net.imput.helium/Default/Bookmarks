@@ -1,5 +1,5 @@
 {
-   "checksum": "608fc5a6dd881a69e3b765cbd6f59406",
+   "checksum": "52ef49f5f6e22b42cdd0e081fe249cb1",
    "roots": {
       "bookmark_bar": {
          "children": [ {
@@ -164,7 +164,7 @@
             } ],
             "date_added": "13402543053873462",
             "date_last_used": "0",
-            "date_modified": "13405789954657668",
+            "date_modified": "13405800330275795",
             "guid": "bdb56887-c84d-4fb8-b72f-fc319b54bdaf",
             "id": "2",
             "name": "NetApp",
@@ -1259,6 +1259,180 @@
             "guid": "9f981986-4179-4f30-9b06-23614466ee89",
             "id": "136",
             "name": "AI",
+            "type": "folder"
+         }, {
+            "children": [ {
+               "date_added": "13405800330275795",
+               "date_last_used": "0",
+               "guid": "da4faa00-ce8e-4aae-a1dd-535fecfe457a",
+               "id": "157",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Movies - YouTube",
+               "type": "url",
+               "url": "https://www.youtube.com/playlist?list=PLSqaJ3G3epu9WLMbeboxKuYpphubj2gaH"
+            }, {
+               "date_added": "13405800371892585",
+               "date_last_used": "0",
+               "guid": "a6d1fae1-0030-4f92-b4e6-b599e581072b",
+               "id": "159",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Prime Video",
+               "type": "url",
+               "url": "https://www.amazon.com/gp/video/storefront?ref_=nav_em_aiv_0_2_2_2"
+            }, {
+               "date_added": "13405800392997591",
+               "date_last_used": "0",
+               "guid": "0322f177-f11c-4fea-ba6f-38482c831de6",
+               "id": "160",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Paramount Plus",
+               "type": "url",
+               "url": "https://www.paramountplus.com/home/"
+            }, {
+               "date_added": "13405800680327587",
+               "date_last_used": "0",
+               "guid": "7911a391-c096-453e-ba04-950763b43773",
+               "id": "161",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Peacock",
+               "type": "url",
+               "url": "https://www.peacocktv.com/watch/home"
+            }, {
+               "date_added": "13405800708383033",
+               "date_last_used": "0",
+               "guid": "378b3f2d-1b91-45ad-be68-e76b97e22975",
+               "id": "162",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Netflix",
+               "type": "url",
+               "url": "https://www.netflix.com/browse"
+            }, {
+               "date_added": "13405800723317482",
+               "date_last_used": "0",
+               "guid": "ded2a7e4-17b3-44ee-9fe7-24dbea085b0e",
+               "id": "163",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Hulu",
+               "type": "url",
+               "url": "https://www.hulu.com/hub/home"
+            }, {
+               "date_added": "13405800732678504",
+               "date_last_used": "0",
+               "guid": "3a862c5e-1049-4f4b-b139-9e579a290b65",
+               "id": "164",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Disney+",
+               "type": "url",
+               "url": "https://www.disneyplus.com/home"
+            }, {
+               "date_added": "13405800861508900",
+               "date_last_used": "0",
+               "guid": "b7ad86fa-3278-41a3-a414-b0297c0ba4eb",
+               "id": "169",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "‎Apple TV+",
+               "type": "url",
+               "url": "https://tv.apple.com/"
+            }, {
+               "date_added": "13405800770513610",
+               "date_last_used": "0",
+               "guid": "8d00df09-830c-4a96-adfd-5a4add5d85d8",
+               "id": "165",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "The Roku Channel",
+               "type": "url",
+               "url": "https://therokuchannel.roku.com/"
+            }, {
+               "date_added": "13405800785802003",
+               "date_last_used": "0",
+               "guid": "8a2c263d-0892-4c3d-bb21-7d2281082c22",
+               "id": "166",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Pluto TV",
+               "type": "url",
+               "url": "https://pluto.tv/us/hub/home"
+            }, {
+               "date_added": "13405800801904934",
+               "date_last_used": "0",
+               "guid": "c3a4fb22-5ae7-4d2b-b7f3-2c7cea76663e",
+               "id": "167",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Tubi",
+               "type": "url",
+               "url": "https://tubitv.com/"
+            }, {
+               "date_added": "13405800984094180",
+               "date_last_used": "0",
+               "guid": "3a15707e-a084-4df0-8136-942d2a28cf52",
+               "id": "170",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Plex",
+               "type": "url",
+               "url": "https://app.plex.tv/desktop/#!/"
+            }, {
+               "date_added": "13405801007123620",
+               "date_last_used": "0",
+               "guid": "2d989099-04eb-42d8-a12f-17e5ae9fff6a",
+               "id": "172",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "TMDB",
+               "type": "url",
+               "url": "https://www.themoviedb.org/?language=en-US"
+            }, {
+               "date_added": "13405800994495541",
+               "date_last_used": "0",
+               "guid": "6d7f8be7-39ae-4456-89ec-ba1d192bd1d0",
+               "id": "171",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "IMDb",
+               "type": "url",
+               "url": "https://www.imdb.com/"
+            }, {
+               "date_added": "13405800816889706",
+               "date_last_used": "0",
+               "guid": "efa6b78d-e628-46e8-a71c-8e62518f5065",
+               "id": "168",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Watchlist Notify",
+               "type": "url",
+               "url": "https://watchlistnotify.com/"
+            } ],
+            "date_added": "13405800345201290",
+            "date_last_used": "0",
+            "date_modified": "13405801034169941",
+            "guid": "06820f87-bb97-40e1-9291-d27cd3fde9bf",
+            "id": "158",
+            "name": "Entertainment",
             "type": "folder"
          } ],
          "date_added": "13402543003301494",
