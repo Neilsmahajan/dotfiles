@@ -52,7 +52,7 @@ export NVM_DIR="$HOME/.nvm"
 # -----------------------------------
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
-export GOPROXY="https://go.repo.eng.netapp.com"
+# export GOPROXY="https://go.repo.eng.netapp.com"
 
 # -----------------------------------
 # Java Setup
