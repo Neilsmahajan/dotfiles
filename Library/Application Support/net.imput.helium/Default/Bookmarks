@@ -1,11 +1,11 @@
 {
-   "checksum": "5a37af3508e80e6ae8a4f896913e631b",
+   "checksum": "4165f1872dd0ea29dbe42e7cfdd0b619",
    "roots": {
       "bookmark_bar": {
          "children": [ {
             "children": [ {
                "date_added": "13400612428000000",
-               "date_last_used": "13407886662005803",
+               "date_last_used": "13408498882874589",
                "guid": "4a1025e9-7199-43af-9d2c-aced01535ed0",
                "id": "3",
                "name": "MyNetApp",
@@ -21,7 +21,7 @@
                "url": "https://bitbucket.ngage.netapp.com/projects"
             }, {
                "date_added": "13406739080629764",
-               "date_last_used": "13408313223467003",
+               "date_last_used": "13408553658049355",
                "guid": "bf5f5868-8d63-4d75-ae9e-5700da478c5a",
                "id": "178",
                "meta_info": {
@@ -32,7 +32,7 @@
                "url": "https://jira.ngage.netapp.com/secure/RapidBoard.jspa?rapidView=4486&selectedIssue=UMF-19320&sprint=25366#"
             }, {
                "date_added": "13401499201000000",
-               "date_last_used": "13408479221548392",
+               "date_last_used": "13408555328284170",
                "guid": "ccf52cda-86c2-4368-8696-e119fff832c7",
                "id": "7",
                "name": "Confluence",
@@ -48,7 +48,7 @@
                "url": "https://www.netapp.com/"
             }, {
                "date_added": "13401901491000000",
-               "date_last_used": "13408475323938639",
+               "date_last_used": "13408566018325155",
                "guid": "d65f9bbf-173a-4463-95fa-df13c71b2156",
                "id": "10",
                "name": "Microsoft Azure",
@@ -123,7 +123,7 @@
                   "url": "https://staging.console.netapp.com/identity-access-mgmt/federation"
                }, {
                   "date_added": "13404064025670654",
-                  "date_last_used": "13408477962543635",
+                  "date_last_used": "13408566139331853",
                   "guid": "2bf3e07d-54d2-4b67-9933-5f1fe2d7b73a",
                   "id": "21",
                   "meta_info": {
@@ -135,7 +135,7 @@
                } ],
                "date_added": "13404063998650060",
                "date_last_used": "0",
-               "date_modified": "13408477950929725",
+               "date_modified": "13408499504970209",
                "guid": "9ac36994-7bd1-402d-80d3-533687fd412e",
                "id": "18",
                "name": "Console",
@@ -723,10 +723,21 @@
                "id": "155",
                "name": "Pharmaceuticals",
                "type": "folder"
+            }, {
+               "date_added": "13408499504970209",
+               "date_last_used": "0",
+               "guid": "d0729f24-377f-403a-9f88-e155c607a9d3",
+               "id": "192",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Nimble",
+               "type": "url",
+               "url": "https://patient.nimblerx.com/app/home"
             } ],
             "date_added": "13402543053873920",
             "date_last_used": "0",
-            "date_modified": "13406749563687945",
+            "date_modified": "13408562272277771",
             "guid": "d2ebb68b-f58f-4c16-bc1f-cea48a6f0b12",
             "id": "72",
             "name": "Fitness",
@@ -758,7 +769,7 @@
                "url": "https://bank.discover.com/web/deposits/acdetails?id=SM13858277"
             }, {
                "date_added": "0",
-               "date_last_used": "13407906819388468",
+               "date_last_used": "13408561804814468",
                "guid": "af2e03dd-358f-4571-97d0-0699366ee4bd",
                "id": "90",
                "name": "Fidelity",
@@ -766,7 +777,7 @@
                "url": "https://digital.fidelity.com/ftgw/digital/portfolio/summary"
             }, {
                "date_added": "0",
-               "date_last_used": "13408471966723057",
+               "date_last_used": "13408561020312355",
                "guid": "cf3dcfe7-5575-4606-8b75-21fc99e9002c",
                "id": "91",
                "name": "Capital One Venture X",
@@ -798,7 +809,7 @@
                "url": "https://cash.app/account/activity"
             }, {
                "date_added": "0",
-               "date_last_used": "13407647369641500",
+               "date_last_used": "13408561181221579",
                "guid": "19680f95-7684-4107-a6a7-03529bb9b33b",
                "id": "95",
                "name": "Paysign",
@@ -828,7 +839,7 @@
                "url": "https://www.citi.com/"
             }, {
                "date_added": "13405445757852079",
-               "date_last_used": "13407874346856100",
+               "date_last_used": "13408562446631242",
                "guid": "d40fe7e2-eedf-4de9-98fb-3e540581a437",
                "id": "150",
                "meta_info": {
@@ -838,19 +849,8 @@
                "type": "url",
                "url": "https://us.etrade.com/etx/hw/v2/accountshome?inav=nav:logo"
             }, {
-               "date_added": "13405707485399589",
-               "date_last_used": "13406668500479400",
-               "guid": "10060e77-3225-4cd1-8b56-585f6e3f3eac",
-               "id": "153",
-               "meta_info": {
-                  "power_bookmark_meta": ""
-               },
-               "name": "Chase",
-               "type": "url",
-               "url": "https://www.chase.com/"
-            }, {
                "date_added": "13400772553000000",
-               "date_last_used": "13407798756324676",
+               "date_last_used": "13408569325517260",
                "guid": "d6ccab76-fb9d-4934-9c52-e8908fb8c233",
                "id": "12",
                "name": "Pay - MyADP",
@@ -932,10 +932,32 @@
                "name": "Geico",
                "type": "url",
                "url": "https://portfolio.geico.com/dashboard"
+            }, {
+               "date_added": "13408562272277771",
+               "date_last_used": "0",
+               "guid": "e76dc843-2d28-455a-848e-f1cb7cd88b3f",
+               "id": "194",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Bank of America",
+               "type": "url",
+               "url": "https://www.bankofamerica.com/"
+            }, {
+               "date_added": "13408569286842085",
+               "date_last_used": "0",
+               "guid": "65ce3515-ea45-44a5-bb91-cdd0cd3d5b68",
+               "id": "195",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Chime",
+               "type": "url",
+               "url": "https://app.chime.com/"
             } ],
             "date_added": "13402543053873975",
             "date_last_used": "0",
-            "date_modified": "13408470193690846",
+            "date_modified": "13408569286842085",
             "guid": "294e2a21-c894-4006-891c-7f09cd84679e",
             "id": "86",
             "name": "Finances",
