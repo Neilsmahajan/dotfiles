@@ -14,10 +14,6 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
-# -----------------------------------
-# Homebrew Path Fix (for Apple Silicon)
-# -----------------------------------
-export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 
 # -----------------------------------
 # Aliases
@@ -27,6 +23,19 @@ alias gs='git status'
 alias gc='git commit'
 alias gp='git push'
 alias ga='git add'
+
+# -----------------------------------
+# Go Setup
+# -----------------------------------
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH/bin"
+export TMPDIR=$HOME/tmp
+# export GOPROXY="https://go.repo.eng.netapp.com"
+
+# -----------------------------------
+# Homebrew Path Fix (for Apple Silicon)
+# -----------------------------------
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 
 # -----------------------------------
 # Default Editor
@@ -46,14 +55,6 @@ eval "$(pyenv init -)"
 # -----------------------------------
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
-
-# -----------------------------------
-# Go Setup
-# -----------------------------------
-export GOPATH="$HOME/go"
-export PATH="$PATH:$GOPATH/bin"
-export TMPDIR=$HOME/tmp
-# export GOPROXY="https://go.repo.eng.netapp.com"
 
 # -----------------------------------
 # Java Setup
