@@ -6,6 +6,11 @@ if [[ -z $selected ]]; then
     exit 0
 fi
 
+# --- Special-case platform project ---
+if [[ "$selected" == "$HOME/Developer/platform" ]]; then
+  exec tmux-platform
+fi
+
 selected_name=$(basename "$selected" | tr . _)
 
 if ! tmux has-session -t="$selected_name" 2>/dev/null; then
