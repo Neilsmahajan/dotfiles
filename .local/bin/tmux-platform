@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+SESSION="platform"
+ROOT="$HOME/Developer/platform"
+
+# If session exists, just attach
+if tmux has-session -t "$SESSION" 2>/dev/null; then
+  tmux attach -t "$SESSION"
+  exit 0
+fi
+
+# Create session and first window
+tmux new-session -d -s "$SESSION" -n platform -c "$ROOT"
+
+# federation
+tmux new-window -t "$SESSION" -n federation \
+  -c "$ROOT/services/federation"
+
+# assets
+tmux new-window -t "$SESSION" -n assets \
+  -c "$ROOT/services/assets"
+
+# authorizer
+tmux new-window -t "$SESSION" -n authorizer \
+  -c "$ROOT/services/authorizer"
+
+# auth0mock
+tmux new-window -t "$SESSION" -n auth0mock \
+  -c "$ROOT/tools/federation/auth0mock"
+
+# Focus first window
+tmux select-window -t "$SESSION:1"
+
+# Attach
+tmux attach -t "$SESSION"
