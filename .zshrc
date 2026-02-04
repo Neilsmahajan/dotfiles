@@ -110,6 +110,12 @@ source <(fzf --zsh)
 # -----------------------------------
 eval "$(zoxide init zsh)"
 
+# Load environment variables
+[ -f "$HOME/.zsh/env.zsh" ] && source "$HOME/.zsh/env.zsh"
+
+# Load JWT/Auth0 helper functions
+[ -f "$HOME/.zsh/jwt_functions.zsh" ] && source "$HOME/.zsh/jwt_functions.zsh"
+
 # -----------------------------------
 # User Local Bin
 # -----------------------------------
