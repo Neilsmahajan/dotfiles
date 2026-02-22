@@ -1,0 +1,9 @@
+#!/bin/bash
+
+copilot "$@"
+
+# Terminal bell
+printf "\a"
+
+# macOS notification
+osascript -e 'display notification "Copilot CLI needs input or finished." with title "Copilot CLI" sound name "Ping"'

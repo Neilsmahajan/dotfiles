@@ -1,2 +1,3 @@
 font-family = MesloLGS Nerd Font Mono
 theme = light:catppuccin-latte.conf,dark:catppuccin-mocha.conf
+bell-features = system
