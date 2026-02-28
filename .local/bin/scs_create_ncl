@@ -1,0 +1,26 @@
+#!/bin/zsh
+
+TOKEN='GEC-TOKEN-V1 token=a4c917f9-ee51-4270-882e-ead596acff75, owner=nm16354'
+BASE_URL='https://vpce-025b581811beeb0bf-ejdwvesc.execute-api.us-east-1.vpce.amazonaws.com/v1/cloudship/scs/wsapi'
+APIID='3b2l7jisc6'
+TEMPLATE='gec_ubuntu22.04_ol'
+FLAVOR='m8.Small'
+
+export HTTPS_PROXY="10.251.20.33:8600"
+
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <purpose>"
+    exit 1
+fi
+
+site="RTP"
+zone='Openlab'
+purpose=$1
+
+if [ "$zone" != "BigTop" -a "$zone" != "Openlab" ]; then
+    echo "Invalid zone '$zone'. Valid options: BigTop, Openlab"
+    exit 1
+fi
+
+curl -k -H "Authorization: $TOKEN" -H "x-apigw-api-id: $APIID" -H "Content-Type: application/json" "${BASE_URL}/bulkrequest" \
+    -d "{\"purpose\": \"${purpose}\", \"site\": \"${site}\", \"zone\": \"${zone}\", \"vms\": [{\"template\": \"${TEMPLATE}\", \"flavor\": \"${FLAVOR}\", \"quantity\": 1}]}"

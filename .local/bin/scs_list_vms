@@ -1,0 +1,58 @@
+#!/bin/zsh
+
+TOKEN='GEC-TOKEN-V1 token=a4c917f9-ee51-4270-882e-ead596acff75, owner=nm16354'
+BASE_URL='https://vpce-025b581811beeb0bf-ejdwvesc.execute-api.us-east-1.vpce.amazonaws.com/v1/cloudship/scs/wsapi'
+APIID='3b2l7jisc6'
+CACHE_FILE="${HOME}/.cache/scs_vms"
+
+export HTTPS_PROXY="10.251.20.33:8600"
+
+force_refresh=0
+while getopts "f" opt; do
+    case $opt in
+        f)
+            force_refresh=1
+            ;;
+        *)
+            echo "Usage: ${0:t} [-f]" >&2
+            exit 1
+            ;;
+    esac
+done
+shift $((OPTIND - 1))
+
+fetch_and_print_vms() {
+    local requests keys request_ids details
+
+    requests=$(curl -s -S -k -H "Authorization: $TOKEN" -H "x-apigw-api-id: $APIID" -H "Content-Type: application/json" "${BASE_URL}/bulkrequest")
+    keys=$(printf '%s' "$requests" | jq ". | keys" -rc)
+
+    if [[ $keys == *"requests"* ]]; then
+        request_ids=$(printf '%s' "$requests" | jq ".requests[].bulk_id" -r | xargs)
+
+        echo "Zone\tIP Address\tFlavor   \tPurpose"
+        echo "----\t----------\t---------\t-------"
+
+        for rid in $=request_ids; do
+            details=$(curl -s -S -k -H "Authorization: $TOKEN" -H "x-apigw-api-id: $APIID" -H "Content-Type: application/json" "${BASE_URL}/bulkrequest/${rid}/")
+            printf '%s' "$details" | jq -r '. | "\(.zone)\t\(.vms[].ip4_addr)\t\(.vms[].flavor)\t\(.purpose)"'
+        done
+    else
+        echo "Unknown response" >&2
+        printf '%s\n' "$requests" >&2
+        return 1
+    fi
+}
+
+if [[ $force_refresh -ne 1 && -f "$CACHE_FILE" ]]; then
+    cat "$CACHE_FILE"
+    exit 0
+fi
+
+mkdir -p "${CACHE_FILE:h}"
+
+if fetch_output="$(fetch_and_print_vms)"; then
+    printf '%s\n' "$fetch_output" | tee "$CACHE_FILE"
+else
+    exit 1
+fi
