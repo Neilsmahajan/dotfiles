@@ -1,153 +1,148 @@
 # Neil's Dotfiles
 
-Opinionated, cross‑platform (macOS + Linux) dotfiles managed with GNU Stow. The goal is dead‑simple bootstrap on a new machine with just:
+Opinionated macOS dotfiles managed with GNU Stow. The repo mirrors `$HOME` exactly, so a single command symlinks everything into place:
 
-    	stow .
-
-This repo currently includes `.zshrc` and Neovim config (`.config/nvim/`). More stacks (tmux, Ghostty, oh‑my‑zsh, Powerlevel10k, Karabiner, Raycast, etc.) can be added incrementally using the same pattern.
+    stow .
 
 ## What this repo is
 
-- A source of truth for your shell/editor configs
-- Structured to mirror $HOME so Stow can create symlinks safely
-- Portable across macOS and Linux with minimal conditionals
+- A source of truth for shell, editor, terminal, and keyboard configs
+- Structured to mirror `$HOME` so Stow creates symlinks in the right places
+- Portable across Macs; Linux is a secondary target
 
 ## Prerequisites
 
 - Git
-- GNU Stow
-  - macOS: `brew install stow`
-  - Debian/Ubuntu: `sudo apt-get install stow`
-  - Fedora/RHEL: `sudo dnf install stow`
-  - Arch: `sudo pacman -S stow`
+- GNU Stow — `brew install stow`
 
-## Layout and conventions
-
-- Place files/folders exactly as you want them to appear under `$HOME`
-  - Example: `.zshrc` (file), `.config/nvim/` (folder)
-- Machine‑local overrides live in `*.local` files or `local/` folders which are git‑ignored
-- Plugin version locks that aid reproducibility (e.g. `lazy-lock.json`) are tracked
-- By default, Stow’s built-in ignores are used. If you ever need to prevent specific repo files from being stowed (e.g., README.md), you can add a small `.stow-local-ignore` later.
-
-## Currently tracked and stowed
+## What is tracked and stowed
 
 Shell and prompt
 
-- `~/.zshrc`
-- `~/.zprofile` (if present)
-- `~/.zshenv` (keep minimal)
+- `~/.zshrc`, `~/.zprofile`, `~/.zshenv`
 - `~/.p10k.zsh` (Powerlevel10k)
 
 Editors
 
 - Neovim: `~/.config/nvim/`
-- Vim: `~/.vimrc`
-  - Optional curated runtime: `~/.vim/` (exclude caches/plugins)
+- Vim: `~/.vimrc`, `~/.vim/`
 
-Terminal, hotkeys, launcher
+Terminal and themes
 
-- Ghostty: `~/.config/ghostty/`
-- Karabiner Elements: `~/.config/karabiner/`
-- Raycast: `~/.config/raycast/` (scripts/snippets; Raycast also has its own sync)
+- Ghostty themes: `~/.config/ghostty/themes/`
+- Ghostty main config: `~/Library/Application Support/com.mitchellh.ghostty/config`
+  (macOS only — Ghostty does not support XDG on macOS for its main config file)
+
+Keyboard and automation
+
+- Karabiner Elements: `~/.config/karabiner/karabiner.json`
+- Hammerspoon: `~/.hammerspoon/init.lua`
 
 Terminal multiplexer
 
 - tmux: `~/.tmux.conf`
-- Sessionizer scripts: `~/.config/tmux-sessionizer/` (if present)
+- Sessionizer receipt: `~/.config/tmux-sessionizer/`
 
-Git (global)
+Scripts
 
-- `~/.gitconfig`
+- `~/.local/bin/` — custom scripts (copilot-notify, helium-sync, helium-unstow,
+  tmux-platform, tmux-sessionizer)
+
+Homebrew
+
+- `~/.Brewfile`
+
+Git
+
+- `~/.gitconfig` — name, email, and aliases
+  - For machine-specific identity overrides, create `~/.gitconfig.local` (git-ignored);
+    it is automatically included via `[include]` in `.gitconfig`
+
+AWS (localstack)
+
+- `~/.aws/config` — localstack profile (`endpoint_url = http://localhost:4566`)
+- `~/.aws/credentials` — localstack dummy credentials (`aws_access_key_id = test`)
+  These are not real secrets; they are the standard localstack test values.
+  If you ever add real AWS profiles, put them in `~/.aws/config.local` and keep them
+  out of git.
+
+GitHub CLI
+
+- `~/.config/gh/config.yml` — preferences and aliases (e.g. `co: pr checkout`)
+  `hosts.yml` and `ai/` are machine-bound and git-ignored; run `gh auth login` on
+  each machine.
 
 Not stowed by design
 
-- `~/.oh-my-zsh/` (installed per machine to simplify updates)
+- `~/.oh-my-zsh/` — installed per machine via the oh-my-zsh installer
+- Helium bookmarks (see below)
+- `~/.config/gh/hosts.yml` and `~/.config/gh/ai/` — machine-bound auth state
+- `~/.gitconfig.local` — machine-local git identity overrides
 
-## Quick start (recommended)
+## Quick start
 
-1.  Clone into `~/dotfiles` (the commands below assume this exact path)
+1. Clone into `~/dotfiles`
 
-2.  Dry run to preview actions (safe):
+2. Dry run to preview (safe — makes no changes):
 
-        stow -nvt ~ .
+       stow -nvt ~ .
 
-3.  When the dry run looks good, apply:
+3. When the dry run looks good, apply:
 
-        stow .
+       stow .
 
-Notes:
+4. Restore Helium bookmarks on a new machine:
 
-- Running inside `~/dotfiles` with no `-t` target will symlink into the parent directory (`~`) by default.
-- If you keep the repo elsewhere, specify a target: `stow -t ~ .`
+       helium-unstow
 
-## Updating, restowing, and removing
+## Updating and restowing
 
-- After making changes in the repo, re‑sync symlinks:
+After making changes in the repo, re-sync symlinks:
 
-      	stow -R .
+    stow -R .
 
-- To remove symlinks created by Stow (unstow):
+To remove all symlinks created by Stow:
 
-      	stow -D .
+    stow -D .
 
-- To preview any of the above, add `-n` for a dry run and `-v` for verbosity.
-
-## Handling conflicts safely
+## Handling conflicts
 
 If a real file already exists where a symlink would go, Stow will refuse to overwrite it.
 
-Options:
+- Backup the conflicting file manually (e.g. `mv ~/.zshrc ~/.zshrc.bak`), then restow.
+- Or adopt it into the repo (review `git diff` carefully after):
 
-- Backup manually (recommended): rename `~/.zshrc` to `~/.zshrc.bak`, then restow
-- Adopt existing files into the repo (advanced):
+      stow --adopt .
 
-      	stow --adopt .
+## Helium bookmarks
 
-  This moves conflicting files into the repo and replaces them with symlinks. Review `git status` carefully afterwards.
+Helium manages its own profile directory and does not support symlinks for its `Bookmarks`
+file — it writes a real file there. Stow cannot manage it directly.
 
-## Per‑machine/local settings
+Two scripts handle this:
 
-Use `*.local` and `local/` conventions to keep secrets or host‑specific tweaks out of version control.
+- **`helium-sync`** — copies the live `~/Library/.../Bookmarks` into the repo so it can be
+  committed. Run this before committing when bookmarks have changed.
+- **`helium-unstow`** — copies `Bookmarks` from the repo back to the live location. Run this
+  on a new machine after cloning (Helium must have been opened at least once first).
 
-Examples:
+## Per-machine local settings
+
+Use `*.local` and `local/` conventions to keep secrets or host-specific tweaks out of git.
 
 - Zsh: have `.zshrc` source `~/.zshrc.local` if it exists (not tracked)
-- Neovim: place machine‑specific config in `.config/nvim/local.lua` or `.config/nvim/local/` (git‑ignored)
+- Neovim: place machine-specific config in `.config/nvim/local.lua` or `.config/nvim/local/`
 
 These patterns are already respected by `.gitignore` files in the repo.
 
 ## Neovim notes
 
-- Keep `lazy-lock.json` tracked to pin plugin versions for reproducibility across machines
-- Swap/backup/undo files are ignored
-- If you use a first‑run bootstrap, simply open Neovim and let your plugin manager sync; e.g.: open `nvim` once after stowing
-
-## Future additions (recommended structure)
-
-You can add these later as top‑level peers so a single `stow .` keeps working:
-
-- `.tmux.conf` and/or `.config/tmux/`
-- `.config/ghostty/`
-- `oh-my-zsh/` custom files or just keep `ZSH_CUSTOM` files under `.oh-my-zsh/custom/` if you prefer; manage `.zshrc` here
-- Powerlevel10k: track `~/.p10k.zsh`
-- Vim (if needed in addition to Neovim): `.vimrc`, `.vim/`
-- Karabiner: `.config/karabiner/karabiner.json`
-- Raycast: export settings; Raycast sync isn’t purely file‑based, but you can keep snippets/scripts here
-
-Tip: Prefer XDG paths (`~/.config/...`) where possible so macOS/Linux align.
+- `lazy-lock.json` is tracked to pin plugin versions across machines
+- Open `nvim` once after stowing to let lazy.nvim bootstrap and sync plugins
 
 ## Troubleshooting
 
-- Stow is touching files it shouldn’t: use a dry run (`stow -nvt ~ .`) and, if needed, add a `.stow-local-ignore` to exclude repo-only files
-- I want to see exactly what will change: use `stow -nvv .`
-- Strange symlink locations: ensure you’re in `~/dotfiles` and/or pass `-t ~`
-
-## Why GNU Stow?
-
-- Simple, declarative symlink management
-- Safe by default (refuses to overwrite real files)
-- Easy to adopt/remove per “package” or everything at once
-
----
-
-Happy stowing! If you add new tool configs, mirror the `$HOME` layout and they’ll integrate seamlessly with `stow .`
+- **Stow touches files it shouldn't**: use `stow -nvt ~ .` to preview, then add entries to
+  `.stow-local-ignore` to exclude repo-only files
+- **See exactly what will change**: `stow -nvv .`
+- **Strange symlink locations**: ensure you are running from inside `~/dotfiles`

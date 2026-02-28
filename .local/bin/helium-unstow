@@ -1,1 +1,32 @@
-/Users/nm16354/dotfiles/.local/bin/helium-unstow
+#!/usr/bin/env bash
+# helium-unstow: Restore Helium's Bookmarks from the dotfiles repo to the live location.
+# Use this when setting up a new machine or after a stow -D to put bookmarks back in place.
+#
+# Usage: helium-unstow
+
+set -euo pipefail
+
+HELIUM_DIR="$HOME/Library/Application Support/net.imput.helium/Default"
+DOTFILES_DIR="$HOME/dotfiles/Library/Application Support/net.imput.helium/Default"
+
+src="$DOTFILES_DIR/Bookmarks"
+dest="$HELIUM_DIR/Bookmarks"
+
+if [[ ! -f "$src" ]]; then
+  echo "helium-unstow: error: no Bookmarks found in dotfiles at: $src" >&2
+  exit 1
+fi
+
+if [[ ! -d "$HELIUM_DIR" ]]; then
+  echo "helium-unstow: error: Helium profile directory not found: $HELIUM_DIR" >&2
+  echo "helium-unstow: open Helium at least once to create its profile, then re-run." >&2
+  exit 1
+fi
+
+if [[ -f "$dest" ]]; then
+  echo "helium-unstow: backing up existing Bookmarks to ${dest}.bak"
+  cp "$dest" "${dest}.bak"
+fi
+
+cp "$src" "$dest"
+echo "helium-unstow: restored Bookmarks → $dest"

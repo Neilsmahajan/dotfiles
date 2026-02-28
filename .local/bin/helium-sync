@@ -1,1 +1,29 @@
-cp ~/dotfiles/Library/Application\ Support/net.imput.helium/Default/Bookmarks ~/dotfiles/Library/Application\ Support/net.imput.helium/Default/Bookmarks.bak && rm ~/Library/Application\ Support/net.imput.helium/Default/Bookmarks.bak && mv ~/Library/Application\ Support/net.imput.helium/Default/Bookmarks ~/dotfiles/Library/Application\ Support/net.imput.helium/Default/Bookmarks
+#!/usr/bin/env bash
+# helium-sync: Copy Helium's live Bookmarks file into the dotfiles repo for git tracking.
+# Helium manages its own profile directory and does not support symlinks for Bookmarks,
+# so this script is used instead of stowing ~/Library/Application Support/net.imput.helium/.
+#
+# Usage: helium-sync
+#   Run this before committing to capture the latest bookmarks.
+
+set -euo pipefail
+
+HELIUM_DIR="$HOME/Library/Application Support/net.imput.helium/Default"
+DOTFILES_DIR="$HOME/dotfiles/Library/Application Support/net.imput.helium/Default"
+
+src="$HELIUM_DIR/Bookmarks"
+dest="$DOTFILES_DIR/Bookmarks"
+
+if [[ ! -f "$src" ]]; then
+  echo "helium-sync: error: Bookmarks file not found at: $src" >&2
+  exit 1
+fi
+
+# Back up the previous version in the repo before overwriting
+if [[ -f "$dest" ]]; then
+  cp "$dest" "$dest.bak"
+fi
+
+cp "$src" "$dest"
+echo "helium-sync: copied Bookmarks → $dest"
+echo "helium-sync: run 'git -C ~/dotfiles diff Library/' to review changes before committing"

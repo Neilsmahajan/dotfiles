@@ -1,0 +1,12 @@
+[user]
+	email = neil.mahajan@netapp.com
+	name = Mahajan, Neil
+
+# Machine-local overrides (git-ignored). Create ~/.gitconfig.local to override
+# any values above — e.g. a personal email on a non-work machine:
+#
+#   [user]
+#       email = neil@personal.com
+#
+[include]
+	path = ~/.gitconfig.local

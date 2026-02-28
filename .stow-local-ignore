@@ -1,0 +1,8 @@
+# Files that live in the repo but should NOT be symlinked into $HOME
+README.md
+\.git
+\.gitignore
+
+# Helium bookmarks are managed manually via helium-sync/helium-unstow, not stowed.
+# Helium writes a real Bookmarks file and does not tolerate symlinks there.
+Library/Application Support/net\.imput\.helium
