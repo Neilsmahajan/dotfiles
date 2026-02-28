@@ -27,10 +27,14 @@ bindArrows({ "rcmd", "lalt" }, { "alt" })
 -- Matches physical LEFT command (lcmd), emits logical command (cmd)
 bindArrows({ "rcmd", "lcmd" }, { "cmd" })
 
+-- 4) rcmd + LEFT option + LEFT command + hjkl => opt+cmd+arrows (e.g. shift tab in browser)
+bindArrows({ "rcmd", "lalt", "lcmd" }, { "alt", "cmd" })
+
 -- Optional: selections
 bindArrows({ "rcmd", "lshift" }, { "shift" })
 bindArrows({ "rcmd", "lalt", "lshift" }, { "alt", "shift" })
 bindArrows({ "rcmd", "lcmd", "lshift" }, { "cmd", "shift" })
+bindArrows({ "rcmd", "lalt", "lcmd", "lshift" }, { "alt", "cmd", "shift" })
 
 -- Optional: if you want right-option/right-command to also work, add:
 -- bindArrows({ "rcmd", "ralt" }, { "alt" })
