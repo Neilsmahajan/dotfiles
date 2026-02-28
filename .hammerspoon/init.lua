@@ -44,10 +44,14 @@ bindArrows({ "rcmd", "lalt", "lcmd", "lshift" }, { "alt", "cmd", "shift" })
 
 -- rcmd + u/o => page up/down (with hold/repeat)
 lr:bind({ "rcmd" }, "u", stroke({}, "pageup"), nil, stroke({}, "pageup"))
-lr:bind(
-  { "rcmd" },
-  "o",
-  stroke({}, "pagedown"),
-  nil,
-  stroke({}, "pagedown")
-)
+lr:bind({ "rcmd" }, "o", stroke({}, "pagedown"), nil, stroke({}, "pagedown"))
+
+-- rcmd + n/m => scroll down/up (with hold/repeat)
+local function scroll(dy)
+  return function()
+    hs.eventtap.event.newScrollEvent({0, dy}, {}, "line"):post()
+  end
+end
+
+lr:bind({ "rcmd" }, "n", scroll(-3), nil, scroll(-3))
+lr:bind({ "rcmd" }, "m", scroll(3), nil, scroll(3))
