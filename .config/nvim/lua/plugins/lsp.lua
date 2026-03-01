@@ -1,10 +1,12 @@
 -- ~/.config/nvim/lua/plugins/lsp.lua
+-- Uses Neovim 0.11+ native vim.lsp.config / vim.lsp.enable APIs.
+-- nvim-lspconfig is kept as a dependency for server config defaults (cmd, filetypes, root_markers).
 
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
-    "b0o/schemastore.nvim" -- for JSON schemas
+    "b0o/schemastore.nvim", -- for JSON schemas
   },
   config = function()
     -- Configure diagnostics globally
@@ -16,36 +18,52 @@ return {
       severity_sort = true,
     })
 
-    local lspconfig = require("lspconfig")
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-    -- Helper function for common on_attach
-    local on_attach = function(client, bufnr)
-      -- Disable formatting for servers where we use conform.nvim
-      if client.name == "ts_ls" or client.name == "pyright" or client.name == "gopls" or client.name == "svelte" then
-        client.server_capabilities.documentFormattingProvider = false
-      end
+    -- Common on_attach behaviour applied via LspAttach autocmd
+    vim.api.nvim_create_autocmd("LspAttach", {
+      callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        if not client then return end
 
-      -- Enable inlay hints if available
-      if client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
-        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-      end
+        -- Disable formatting for servers where we use conform.nvim
+        local no_format = { ts_ls = true, pyright = true, gopls = true, svelte = true }
+        if no_format[client.name] then
+          client.server_capabilities.documentFormattingProvider = false
+        end
+
+        -- Enable inlay hints if available
+        if client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
+          vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+        end
+
+        -- Clangd specific keymap
+        if client.name == "clangd" then
+          vim.keymap.set("n", "<leader>ch", "<cmd>LspClangdSwitchSourceHeader<cr>",
+            { buffer = args.buf, desc = "Switch Source/Header" })
+        end
+      end,
+    })
+
+    -- Shared defaults applied to every server
+    local shared = {
+      capabilities = capabilities,
+    }
+
+    ---Helper: merge shared defaults with server-specific overrides
+    ---@param overrides? table
+    ---@return table
+    local function with(overrides)
+      return vim.tbl_deep_extend("force", shared, overrides or {})
     end
 
     -- Basic servers with minimal config
-    local basic_servers = { "lua_ls", "bashls" }
-    for _, server in ipairs(basic_servers) do
-      lspconfig[server].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-      })
-    end
+    vim.lsp.config("lua_ls", with())
+    vim.lsp.config("bashls", with())
 
     -- TypeScript/JavaScript
-    lspconfig.ts_ls.setup({
+    vim.lsp.config("ts_ls", with({
       cmd = { "typescript-language-server", "--stdio" },
-      capabilities = capabilities,
-      on_attach = on_attach,
       settings = {
         typescript = {
           inlayHints = {
@@ -66,12 +84,10 @@ return {
           },
         },
       },
-    })
+    }))
 
     -- Python
-    lspconfig.pyright.setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
+    vim.lsp.config("pyright", with({
       settings = {
         python = {
           analysis = {
@@ -81,12 +97,10 @@ return {
           },
         },
       },
-    })
+    }))
 
     -- Go
-    lspconfig.gopls.setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
+    vim.lsp.config("gopls", with({
       settings = {
         gopls = {
           gofumpt = true,
@@ -103,17 +117,10 @@ return {
           },
         },
       },
-    })
+    }))
 
     -- C/C++ (excluding Arduino)
-    lspconfig.clangd.setup({
-      capabilities = capabilities,
-      on_attach = function(client, bufnr)
-        on_attach(client, bufnr)
-        -- Clangd specific keymap
-        vim.keymap.set("n", "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>",
-          { buffer = bufnr, desc = "Switch Source/Header" })
-      end,
+    vim.lsp.config("clangd", with({
       cmd = {
         "clangd",
         "--background-index",
@@ -124,60 +131,62 @@ return {
         "--fallback-style=llvm",
       },
       filetypes = { "c", "cpp", "objc", "objcpp" },
-      root_dir = function(fname)
-        -- Don't attach to Arduino files
-        if fname:match("%.ino$") then return nil end
-        -- More permissive root detection - fallback to current directory
-        return require("lspconfig.util").root_pattern(
+      root_dir = function(bufnr, on_dir)
+        local fname = vim.api.nvim_buf_get_name(bufnr)
+        if fname:match("%.ino$") then return end
+        local root = require("lspconfig.util").root_pattern(
           "compile_commands.json",
           "compile_flags.txt",
           ".clangd",
           ".git"
-        )(fname) or vim.fn.getcwd()
+        )(fname)
+        on_dir(root or vim.fn.getcwd())
       end,
-    })
+    }))
 
     -- JSON with schemas
-    lspconfig.jsonls.setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
+    vim.lsp.config("jsonls", with({
       settings = {
         json = {
           schemas = require("schemastore").json.schemas(),
           validate = { enable = true },
         },
       },
-    })
+    }))
 
     -- HTML
-    lspconfig.html.setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
+    vim.lsp.config("html", with({
       filetypes = { "html" },
-    })
+    }))
 
     -- CSS
-    lspconfig.cssls.setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
+    vim.lsp.config("cssls", with({
       filetypes = { "css", "scss", "less" },
-    })
+    }))
 
     -- Svelte
-    lspconfig.svelte.setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
+    vim.lsp.config("svelte", with({
       filetypes = { "svelte" },
-    })
+    }))
 
     -- SQL (PostgreSQL)
-    -- Requires the Postgres Language Server (postgrestools) installed and on PATH
-    -- See: https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#postgres_lsp
-    lspconfig.postgres_lsp.setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
+    vim.lsp.config("postgres_lsp", with({
       filetypes = { "sql" },
-      -- Uses default cmd: { "postgrestools", "lsp-proxy" }
+    }))
+
+    -- Enable all configured servers
+    vim.lsp.enable({
+      "lua_ls",
+      "bashls",
+      "ts_ls",
+      "pyright",
+      "gopls",
+      "clangd",
+      "jsonls",
+      "html",
+      "cssls",
+      "svelte",
+      "postgres_lsp",
     })
   end,
 }
