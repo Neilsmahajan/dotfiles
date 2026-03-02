@@ -13,7 +13,7 @@ return {
       "go", "c", "cpp", "arduino", "svelte",
     }
 
-    local installed = require("nvim-treesitter.config").get_installed()
+    local installed = require("nvim-treesitter.info").installed_parsers()
     local missing = vim.tbl_filter(function(lang)
       return not vim.list_contains(installed, lang)
     end, desired_parsers)
