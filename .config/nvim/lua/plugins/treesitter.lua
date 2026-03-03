@@ -13,9 +13,9 @@ return {
       "go", "c", "cpp", "arduino", "svelte",
     }
 
-    local installed = require("nvim-treesitter.info").installed_parsers()
+    -- Use built-in Neovim 0.11+ API to check installed parsers
     local missing = vim.tbl_filter(function(lang)
-      return not vim.list_contains(installed, lang)
+      return not pcall(vim.treesitter.language.inspect, lang)
     end, desired_parsers)
 
     if #missing > 0 then
