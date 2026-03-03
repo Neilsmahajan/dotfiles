@@ -55,3 +55,13 @@ end
 
 lr:bind({ "rcmd" }, "n", scroll(-3), nil, scroll(-3))
 lr:bind({ "rcmd" }, "m", scroll(3), nil, scroll(3))
+
+-- rcmd + lshift + n/m => scroll left/right (with hold/repeat)
+local function hscroll(dx)
+  return function()
+    hs.eventtap.event.newScrollEvent({dx, 0}, {}, "line"):post()
+  end
+end
+
+lr:bind({ "rcmd", "lshift" }, "n", hscroll(-3), nil, hscroll(-3))
+lr:bind({ "rcmd", "lshift" }, "m", hscroll(3), nil, hscroll(3))
