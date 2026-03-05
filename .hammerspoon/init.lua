@@ -47,13 +47,17 @@ bindArrows({ "rcmd", "lalt" }, { "alt" })
 -- Matches physical LEFT command (lcmd), emits logical command (cmd)
 bindArrows({ "rcmd", "lcmd" }, { "cmd" })
 
--- 4) rcmd + LEFT control + LEFT option + hjkl => ctrl+alt+arrows (e.g. resize window in JetBrains)
+-- 4) rcmd + LEFT option + LEFT command + hjkl => opt+cmd+arrows (e.g. tab switching in browser)
+bindArrows({ "rcmd", "lalt", "lcmd" }, { "alt", "cmd" })
+
+-- 5) rcmd + LEFT control + LEFT option + hjkl => ctrl+alt+arrows (e.g. resize window in JetBrains)
 bindArrows({ "rcmd", "lctrl", "lalt" }, { "ctrl", "alt" })
 
 -- Optional: selections
 bindArrows({ "rcmd", "lshift" }, { "shift" })
 bindArrows({ "rcmd", "lalt", "lshift" }, { "alt", "shift" })
 bindArrows({ "rcmd", "lcmd", "lshift" }, { "cmd", "shift" })
+bindArrows({ "rcmd", "lalt", "lcmd", "lshift" }, { "alt", "cmd", "shift" })
 bindArrows({ "rcmd", "lctrl", "lalt", "lshift" }, { "ctrl", "alt", "shift" })
 
 -- Optional: if you want right-option/right-command to also work, add:
