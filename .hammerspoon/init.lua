@@ -4,8 +4,28 @@ local lr = spoon.LeftRightHotkey
 lr:start()
 
 local function stroke(mods, key)
+  -- Build the exact raw flag mask for desired modifiers only.
+  -- This prevents physically-held keys (e.g. rcmd) from leaking into
+  -- the synthetic event that the target application receives.
+  local rfm = hs.eventtap.event.rawFlagMasks
+  local modToRawFlags = {
+    cmd   = (rfm.command   or 0) | (rfm.deviceLeftCommand or 0),
+    alt   = (rfm.alternate or 0) | (rfm.deviceLeftAlternate or 0),
+    shift = (rfm.shift     or 0) | (rfm.deviceLeftShift or 0),
+    ctrl  = (rfm.control   or 0) | (rfm.deviceLeftControl or 0),
+  }
+  local rawFlags = 0
+  for _, m in ipairs(mods) do
+    rawFlags = rawFlags | (modToRawFlags[m] or 0)
+  end
+
   return function()
-    hs.eventtap.keyStroke(mods, key, 0)
+    local down = hs.eventtap.event.newKeyEvent(key, true)
+    down:rawFlags(rawFlags)
+    down:post()
+    local up = hs.eventtap.event.newKeyEvent(key, false)
+    up:rawFlags(rawFlags)
+    up:post()
   end
 end
 
@@ -27,14 +47,14 @@ bindArrows({ "rcmd", "lalt" }, { "alt" })
 -- Matches physical LEFT command (lcmd), emits logical command (cmd)
 bindArrows({ "rcmd", "lcmd" }, { "cmd" })
 
--- 4) rcmd + LEFT option + LEFT command + hjkl => opt+cmd+arrows (e.g. shift tab in browser)
-bindArrows({ "rcmd", "lalt", "lcmd" }, { "alt", "cmd" })
+-- 4) rcmd + LEFT control + LEFT option + hjkl => ctrl+alt+arrows (e.g. resize window in JetBrains)
+bindArrows({ "rcmd", "lctrl", "lalt" }, { "ctrl", "alt" })
 
 -- Optional: selections
 bindArrows({ "rcmd", "lshift" }, { "shift" })
 bindArrows({ "rcmd", "lalt", "lshift" }, { "alt", "shift" })
 bindArrows({ "rcmd", "lcmd", "lshift" }, { "cmd", "shift" })
-bindArrows({ "rcmd", "lalt", "lcmd", "lshift" }, { "alt", "cmd", "shift" })
+bindArrows({ "rcmd", "lctrl", "lalt", "lshift" }, { "ctrl", "alt", "shift" })
 
 -- Optional: if you want right-option/right-command to also work, add:
 -- bindArrows({ "rcmd", "ralt" }, { "alt" })
