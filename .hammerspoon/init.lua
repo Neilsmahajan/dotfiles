@@ -9,10 +9,10 @@ local function stroke(mods, key)
   -- the synthetic event that the target application receives.
   local rfm = hs.eventtap.event.rawFlagMasks
   local modToRawFlags = {
-    cmd   = (rfm.command   or 0) | (rfm.deviceLeftCommand or 0),
+    cmd   = (rfm.command or 0) | (rfm.deviceLeftCommand or 0),
     alt   = (rfm.alternate or 0) | (rfm.deviceLeftAlternate or 0),
-    shift = (rfm.shift     or 0) | (rfm.deviceLeftShift or 0),
-    ctrl  = (rfm.control   or 0) | (rfm.deviceLeftControl or 0),
+    shift = (rfm.shift or 0) | (rfm.deviceLeftShift or 0),
+    ctrl  = (rfm.control or 0) | (rfm.deviceLeftControl or 0),
   }
   local rawFlags = 0
   for _, m in ipairs(mods) do
@@ -73,7 +73,7 @@ lr:bind({ "rcmd" }, "o", stroke({}, "pagedown"), nil, stroke({}, "pagedown"))
 -- rcmd + n/m => scroll down/up (with hold/repeat)
 local function scroll(dy)
   return function()
-    hs.eventtap.event.newScrollEvent({0, dy}, {}, "line"):post()
+    hs.eventtap.event.newScrollEvent({ 0, dy }, {}, "line"):post()
   end
 end
 
@@ -83,7 +83,7 @@ lr:bind({ "rcmd" }, "m", scroll(3), nil, scroll(3))
 -- rcmd + lshift + n/m => scroll left/right (with hold/repeat)
 local function hscroll(dx)
   return function()
-    hs.eventtap.event.newScrollEvent({dx, 0}, {}, "line"):post()
+    hs.eventtap.event.newScrollEvent({ dx, 0 }, {}, "line"):post()
   end
 end
 
