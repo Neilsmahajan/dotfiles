@@ -3,9 +3,9 @@
 SESSION="platform"
 ROOT="$HOME/Developer/platform"
 
-# If session exists, just attach
+# If session exists, switch or attach
 if tmux has-session -t "$SESSION" 2>/dev/null; then
-  tmux attach -t "$SESSION"
+  tmux switch-client -t "$SESSION" 2>/dev/null || tmux attach-session -t "$SESSION"
   exit 0
 fi
 
@@ -31,5 +31,5 @@ tmux new-window -t "$SESSION" -n auth0mock \
 # Focus first window
 tmux select-window -t "$SESSION:1"
 
-# Attach
-tmux attach -t "$SESSION"
+# Switch if inside tmux, otherwise attach
+tmux switch-client -t "$SESSION" 2>/dev/null || tmux attach-session -t "$SESSION"
